@@ -1,0 +1,10 @@
+use classroomdb
+db.createCollection("students")
+db.students.insert({"name":"sean", "row": 2, "hobbies": ["eating", "videogames", "coding"],"os":"mac"}); <insert an array manually>
+db.students.find() <find all> 
+db.students.find({"name":"sean"})   <find where name is sean>
+
+db.students.update(
+   { name: "sean" },
+   { $push: { "hobbies": { $each: [ "wendy's", "Pizza", "Talking to hair dryers" ] } } }
+)  <add each item to existing array>
