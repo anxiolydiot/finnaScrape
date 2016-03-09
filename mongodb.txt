@@ -7,4 +7,13 @@ db.students.find({"name":"sean"})   <find where name is sean>
 db.students.update(
    { name: "sean" },
    { $push: { "hobbies": { $each: [ "wendy's", "Pizza", "Talking to hair dryers" ] } } }
-)  <add each item to existing array>
+)       <add each item to existing array>
+
+
+db.students.update(
+   {name : "sean"},
+   { $push: { "hobbies": "headaches" } }
+)    <append single item to array>
+
+
+db.students.update( { "_id" : ObjectId("56de2ae16afb9e79e1f03b6a")}, { $rename: { "hobbies": "interests" } } )  <rename a field, finds by Id>
